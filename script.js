@@ -143,7 +143,7 @@ botonConfeti.addEventListener('click', () => {
 
         setTimeout(() => {
             confeti.remove();
-        }, 80000000);
+        }, 80000);
     }
 
 });
