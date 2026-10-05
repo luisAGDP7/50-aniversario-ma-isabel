@@ -1,0 +1,2002 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    width: 100%;
+
+    background: #050505;
+    color: #d4af37;
+    font-family: 'Montserrat', sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+.invitacion {
+    min-height: 100vh;
+}
+
+
+.portada {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #191919 0%,
+            #090909 45%,
+            #020202 100%
+        );
+}
+
+
+.sello {
+    width: 90px;
+    height: 90px;
+
+    border: 1px solid #d4af37;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.25),
+        inset 0 0 15px rgba(212, 175, 55, 0.08);
+}
+
+
+.sobre {
+    width: 320px;
+    height: 210px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    perspective: 800px;
+
+    filter:
+        drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7));
+}
+
+
+.sobre-cuerpo {
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        145deg,
+        #151515,
+        #080808
+    );
+
+    border: 1px solid #8d7322;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0;
+
+    z-index: 2;
+}
+
+
+.sobre-solapa {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #242424;
+
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 1px 0 #d4af37);
+    
+    transform-origin: top center;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease;
+
+    z-index: 3;
+}
+
+
+.sobre-texto {
+    font-family: 'Cinzel', serif;
+
+    font-size: 15px;
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    color: #d4af37;
+
+    z-index: 1;
+
+    transform: translateY(20px);
+}
+
+
+.indicacion {
+    margin-top: 35px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #aaa;
+
+    text-align: center;
+
+    animation: respirar 2.5s ease-in-out infinite;
+}
+
+
+@keyframes respirar {
+
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   ANIMACIÓN DEL SOBRE
+   ========================= */
+
+.sobre-solapa {
+    transform-origin: top center;
+    transition: transform 0.8s ease;
+}
+
+/* Cuando el sobre se abre */
+.sobre.abierto .sobre-solapa {
+    transform: rotateX(180deg);
+}
+
+/* La indicación desaparece */
+.indicacion {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.indicacion.ocultar {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* =========================
+   TARJETA DENTRO DEL SOBRE
+   ========================= */
+
+.tarjeta {
+    position: absolute;
+
+    width: 280px;
+    height: 180px;
+
+    left: 20px;
+    bottom: 15px;
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8f5ec,
+            #e8e0cf
+        );
+
+    color: #151515;
+
+    border: 1px solid #d4af37;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    z-index: 1;
+
+    transform: translateY(0);
+
+    transition:
+        transform 1.3s ease 0.35s,
+        box-shadow 1.3s ease 0.35s;
+}
+
+
+.tarjeta-encabezado {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+
+    color: #777;
+}
+
+
+.tarjeta h1 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 55px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #b08d20;
+
+    margin: 0;
+}
+
+
+.tarjeta-anios {
+    font-family: 'Cinzel', serif;
+
+    font-size: 15px;
+    letter-spacing: 4px;
+
+    margin-top: 3px;
+
+    color: #555;
+}
+
+
+.tarjeta-nombre {
+    font-family: 'Cinzel', serif;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    margin-top: 12px;
+
+    color: #222;
+}
+
+
+/* La tarjeta sale cuando el sobre se abre */
+
+.sobre.abierto .tarjeta {
+    transform:
+        translateY(-185px)
+        scale(1.05);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   EXPANSIÓN DE LA TARJETA
+   ========================= */
+
+.tarjeta.expandida {
+    position: fixed !important;
+
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    margin: 0 !important;
+
+    transform: none !important;
+
+    border: none;
+
+    border-radius: 0;
+
+    z-index: 1000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #191919 0%,
+            #090909 55%,
+            #020202 100%
+        );
+
+    color: #d4af37;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    box-shadow: none;
+
+    transition:
+        width 1.2s ease,
+        height 1.2s ease,
+        top 1.2s ease,
+        left 1.2s ease;
+}
+
+/* =========================
+   DISEÑO DE LA INVITACIÓN
+   ========================= */
+
+.tarjeta.expandida {
+    background:
+        radial-gradient(
+            circle at center,
+            #191919 0%,
+            #090909 55%,
+            #020202 100%
+        );
+
+    color: #d4af37;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* Contenedor interior */
+
+.tarjeta-contenido {
+    width: min(90%, 700px);
+
+    min-height: 80vh;
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 30px;
+
+    position: relative;
+}
+
+
+/* Frase superior */
+
+.tarjeta-frase {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #b9b9b9;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+
+/* Líneas doradas */
+
+.linea-dorada {
+    width: 70px;
+    height: 1px;
+
+    background: #d4af37;
+
+    opacity: 0.8;
+
+    margin: 12px 0;
+}
+
+
+/* Número 50 */
+
+.tarjeta.expandida h2 {
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(100px, 18vw, 190px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    letter-spacing: 8px;
+
+    color: #d4af37;
+
+    text-shadow:
+        0 0 20px rgba(212, 175, 55, 0.15);
+
+    margin: 10px 0;
+}
+
+
+/* AÑOS */
+
+.tarjeta.expandida .tarjeta-anios {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 8px;
+
+    color: #cfcfcf;
+
+    margin: 5px 0 25px;
+}
+
+
+/* Nombre */
+
+.tarjeta.expandida .tarjeta-nombre {
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(20px, 4vw, 32px);
+
+    letter-spacing: 3px;
+
+    color: #f1ead7;
+
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+
+/* Mensaje */
+
+.tarjeta.expandida .tarjeta-mensaje {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #999;
+
+    margin-top: 15px;
+
+    text-align: center;
+}
+
+
+/* Fecha */
+
+.tarjeta.expandida .tarjeta-fecha {
+    font-family: 'Cinzel', serif;
+
+    font-size: 15px;
+
+    letter-spacing: 4px;
+
+    color: #d4af37;
+
+    margin-top: 45px;
+}
+
+
+/* Hora */
+
+.tarjeta.expandida .tarjeta-hora {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+
+    margin-top: 8px;
+}
+
+.tarjeta-contenido {
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.sobre.abierto .tarjeta-contenido {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.tarjeta.expandida .tarjeta-contenido {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* =========================
+   VISTA PREVIA DE LA TARJETA
+   ========================= */
+
+.tarjeta-preview {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.tarjeta-preview h1 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 55px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #b08d20;
+
+    margin: 0;
+}
+
+
+.tarjeta-preview .tarjeta-anios {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #555;
+
+    margin-top: 8px;
+}
+
+
+.tarjeta-preview .tarjeta-nombre {
+    font-family: 'Cinzel', serif;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    color: #222;
+
+    margin-top: 15px;
+
+    text-align: center;
+}
+
+/* El contenido completo permanece oculto */
+
+.tarjeta-contenido {
+    display: none;
+}
+
+/* =========================
+   AL EXPANDIR LA TARJETA
+   ========================= */
+
+.tarjeta.expandida .tarjeta-preview {
+    display: none;
+}
+
+
+.tarjeta.expandida .tarjeta-contenido {
+    display: flex;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    animation: aparecerContenido 1s ease 0.6s forwards;
+}
+
+@keyframes aparecerContenido {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   BOTÓN DE MÚSICA - VINILO
+   ========================= */
+
+.boton-musica {
+    margin-top: 35px;
+
+    padding: 10px 20px 10px 10px;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    border: 1px solid rgba(212, 175, 55, 0.65);
+
+    border-radius: 50px;
+
+    color: #d4af37;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.boton-musica:hover {
+    background: rgba(212, 175, 55, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.18);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   VINILO
+   ========================= */
+
+.vinilo {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            #d4af37 0 4px,
+            #111 5px 8px,
+            #050505 9px 100%
+        );
+
+    border: 1px solid #444;
+
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        inset 0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+
+/* Surcos visibles */
+
+.vinilo::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            transparent 0px,
+            transparent 2px,
+            rgba(255, 255, 255, 0.10) 2.5px,
+            transparent 3.5px
+        );
+}
+
+
+/* Reflejo sobre el vinilo */
+
+.vinilo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212, 175, 55, 0.65),
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform: rotate(-35deg);
+
+    filter: blur(1px);
+
+    opacity: 0.8;
+}
+
+
+/* Centro */
+
+.vinilo-centro {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #d4af37;
+
+    border: 1px solid #8d7322;
+
+    box-shadow:
+        0 0 6px rgba(212, 175, 55, 0.7);
+
+    z-index: 3;
+}
+
+
+/* =========================
+   GIRO DEL VINILO
+   ========================= */
+
+.boton-musica.reproduciendo .vinilo {
+
+    animation:
+        girarVinilo 5s linear infinite;
+
+}
+
+
+@keyframes girarVinilo {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   BIENVENIDA
+   ========================= */
+
+.bienvenida {
+    width: min(90%, 620px);
+
+    margin: 110px auto 0;
+
+    padding: 55px 35px;
+
+    position: relative;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.35);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+
+/* Pequeño detalle dorado central */
+
+.bienvenida::before,
+.bienvenida::after {
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #d4af37;
+
+    font-size: 12px;
+
+    background: #090909;
+
+    padding: 0 12px;
+}
+
+.bienvenida::before {
+    top: -8px;
+}
+
+.bienvenida::after {
+    bottom: -8px;
+}
+
+
+/* Línea superior */
+
+.bienvenida-linea {
+    width: 35px;
+    height: 1px;
+
+    background: #d4af37;
+
+    margin: 0 auto 30px;
+
+    opacity: 0.8;
+}
+
+
+/* Frase principal */
+
+.bienvenida-frase {
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(18px, 3vw, 26px);
+
+    line-height: 1.75;
+
+    letter-spacing: 1px;
+
+    color: #f1ead7;
+
+    margin: 0;
+
+    text-align: center;
+}
+
+
+/* Frase secundaria */
+
+.bienvenida-subtexto {
+    max-width: 470px;
+
+    margin: 30px auto 0;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    letter-spacing: 2px;
+
+    color: #a5a5a5;
+
+    text-align: center;
+}
+
+.tarjeta.expandida {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.tarjeta.expandida .tarjeta-contenido {
+    width: min(90%, 700px);
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    justify-content: flex-start;
+    overflow: visible;
+}
+@media (max-width: 600px) {
+
+    .tarjeta.expandida .tarjeta-contenido {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+
+    .bienvenida {
+        margin-top: 80px;
+
+        padding: 45px 22px;
+    }
+
+    .bienvenida-frase {
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+    .bienvenida-subtexto {
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+
+}
+
+
+/* =========================
+   CUENTA REGRESIVA
+   ========================= */
+
+.cuenta-regresiva {
+    width: min(90%, 650px);
+
+    margin: 110px auto 0;
+
+    padding: 60px 25px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* Título */
+
+.contador-titulo {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #999;
+
+    margin-bottom: 40px;
+}
+
+
+/* Contenedor */
+
+.contador {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+}
+
+
+/* Cada número */
+
+.contador-bloque {
+    min-width: 85px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* Número */
+
+.contador-bloque span {
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(32px, 6vw, 55px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #d4af37;
+
+    text-shadow:
+        0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+
+/* Nombre de unidad */
+
+.contador-bloque small {
+    margin-top: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+
+/* Separadores */
+
+.contador-separador {
+    font-family: 'Cinzel', serif;
+
+    font-size: 28px;
+
+    color: rgba(212, 175, 55, 0.5);
+
+    margin-top: -15px;
+}
+
+
+@media (max-width: 600px) {
+
+    .ubicacion {
+    margin-top: 80px;
+
+    padding: 50px 20px 60px;
+}
+
+.ubicacion-etiqueta {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+.ubicacion-direccion {
+    font-size: 10px;
+}
+
+.calendario {
+    margin-top: 70px;
+    padding: 45px 20px 60px;
+}
+
+.calendario-etiqueta {
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.calendario-texto {
+    font-size: 10px;
+}
+
+}
+
+
+/* =========================
+   UBICACIÓN
+   ========================= */
+
+.ubicacion {
+    width: min(90%, 600px);
+
+    margin: 110px auto 0;
+
+    padding: 65px 30px 75px;
+
+    text-align: center;
+
+    position: relative;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+
+/* Decoración */
+
+.ubicacion-decoracion {
+    font-size: 13px;
+
+    color: #d4af37;
+
+    margin-bottom: 25px;
+}
+
+
+/* Etiqueta */
+
+.ubicacion-etiqueta {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #999;
+
+    margin-bottom: 20px;
+}
+
+
+/* Nombre del lugar */
+
+.ubicacion-titulo {
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(24px, 5vw, 34px);
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color: #f1ead7;
+
+    margin: 0;
+}
+
+
+/* Dirección */
+
+.ubicacion-direccion {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+
+    letter-spacing: 1.5px;
+
+    color: #999;
+
+    margin-top: 20px;
+}
+
+
+/* Botón */
+
+.boton-mapa {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    border: 1px solid rgba(212, 175, 55, 0.7);
+
+    color: #d4af37;
+
+    background: transparent;
+
+    text-decoration: none;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.boton-mapa span {
+    font-size: 17px;
+}
+
+
+.boton-mapa:hover {
+    background: rgba(212, 175, 55, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.15);
+
+    transform: translateY(-2px);
+}
+
+.ubicacion-hora {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 3px;
+    color: #d4af37;
+    margin-top: 22px;
+}
+
+.ubicacion-separador {
+    margin: 60px auto 45px;
+    color: #d4af37;
+    font-size: 13px;
+}
+
+.ubicacion-direccion strong {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    color: #f1ead7;
+    letter-spacing: 1px;
+}
+
+
+
+/* =========================
+   CALENDARIO
+   ========================= */
+
+.calendario {
+    width: min(90%, 600px);
+    margin: 90px auto 0;
+    padding: 60px 30px 70px;
+    text-align: center;
+    position: relative;
+}
+
+.calendario-decoracion {
+    color: #d4af37;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.calendario-etiqueta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.calendario-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #f1ead7;
+    margin: 0;
+}
+
+.calendario-texto {
+    max-width: 450px;
+    margin: 22px auto 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    line-height: 1.9;
+    letter-spacing: 1.5px;
+    color: #999;
+}
+
+.boton-calendario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 35px;
+    padding: 13px 25px;
+
+    border: 1px solid rgba(212, 175, 55, 0.7);
+    color: #d4af37;
+    background: transparent;
+
+    text-decoration: none;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-calendario span {
+    font-size: 17px;
+}
+
+.boton-calendario:hover {
+    background: rgba(212, 175, 55, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.15);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   DESPEDIDA
+   ========================= */
+
+.despedida {
+    width: min(90%, 600px);
+    margin: 80px auto 0;
+    padding: 70px 30px 100px;
+    text-align: center;
+}
+
+.despedida-destello {
+    color: #d4af37;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.despedida-frase {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: #f1ead7;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.despedida-linea {
+    width: 50px;
+    height: 1px;
+    background: #d4af37;
+    margin: 35px auto;
+}
+
+.despedida-nombre {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    margin: 0;
+}
+
+.despedida-final {
+    max-width: 420px;
+    margin: 25px auto 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    line-height: 2;
+    letter-spacing: 1.5px;
+    color: #999;
+}
+
+.boton-confeti {
+    margin-top: 40px;
+    padding: 13px 28px;
+
+    border: 1px solid rgba(212, 175, 55, 0.7);
+    background: transparent;
+    color: #d4af37;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-confeti:hover {
+    background: rgba(212, 175, 55, 0.08);
+
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.18);
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CONFETI
+   ========================= */
+
+.confeti {
+    position: fixed;
+    top: -20px;
+
+    width: 7px;
+    height: 13px;
+
+    background: #d4af37;
+
+    pointer-events: none;
+
+    z-index: 3000;
+
+    animation: caerConfeti linear forwards;
+}
+
+.confeti:nth-child(3n) {
+    width: 5px;
+    height: 9px;
+}
+
+.confeti:nth-child(4n) {
+    border-radius: 50%;
+}
+
+@keyframes caerConfeti {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+
+}
+
+
+
+
+
+/* =========================
+   CONFIRMACIÓN DE ASISTENCIA
+   ========================= */
+
+.confirmacion {
+    width: min(90%, 600px);
+    margin: 50px auto 0;
+    padding: 60px 30px 70px;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.confirmacion-decoracion {
+    color: #d4af37;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.confirmacion-etiqueta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.confirmacion-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(25px, 5vw, 35px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #f1ead7;
+    margin: 0;
+}
+
+.confirmacion-texto {
+    max-width: 430px;
+    margin: 25px auto 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    line-height: 2;
+    letter-spacing: 1px;
+    color: #999;
+}
+
+.boton-confirmacion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 35px;
+    padding: 14px 25px;
+
+    border: 1px solid rgba(212, 175, 55, 0.7);
+    color: #d4af37;
+    background: transparent;
+    text-decoration: none;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: background 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}
+
+.boton-confirmacion span {
+    font-size: 16px;
+}
+
+.boton-confirmacion:hover {
+    background: rgba(212, 175, 55, 0.08);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .confirmacion {
+        margin-top: 35px;
+        padding: 45px 20px 55px;
+    }
+
+    .confirmacion-etiqueta {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .confirmacion-texto {
+        font-size: 10px;
+    }
+}
+
+
+.confirmacion-label {
+    display: block;
+    margin-top: 35px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #d4af37;
+}
+
+.confirmacion-input {
+    display: block;
+
+    width: min(100%, 360px);
+    box-sizing: border-box;
+
+    margin: 15px auto 0;
+    padding: 13px 15px;
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    background: rgba(255, 255, 255, 0.03);
+
+    color: #f1ead7;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.confirmacion-input::placeholder {
+    color: #666;
+}
+
+.confirmacion-input:focus {
+    border-color: rgba(212, 175, 55, 0.9);
+
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, 0.1);
+}
+
+.mensaje-confirmacion {
+    min-height: 20px;
+
+    margin-top: 22px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+
+    color: #d4af37;
+}
+
+.boton-confirmacion:disabled {
+    opacity: 0.7;
+    cursor: default;
+    transform: none;
+}
+
+
+/* =========================
+   MENSAJE PARA MA. ISABEL
+   ========================= */
+
+.mensaje-invitado {
+    margin-top: 75px;
+    padding-top: 10px;
+}
+
+.mensaje-invitado-separador {
+    margin-bottom: 45px;
+
+    color: #d4af37;
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.confirmacion-textarea {
+    resize: vertical;
+    min-height: 100px;
+
+    text-align: left;
+
+    line-height: 1.7;
+}
+
+.confirmacion-textarea::placeholder {
+    text-align: center;
+}
+
+.mensaje-invitado .boton-confirmacion {
+    margin-top: 25px;
+}
+
+.mensaje-invitado .mensaje-confirmacion {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   FOTOGRAFÍAS ELEGANTES
+   ========================= */
+
+.foto-elegante {
+    position: relative;
+
+    width: min(100%, 500px);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 8px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212, 175, 55, 0.8),
+            rgba(212, 175, 55, 0.25),
+            rgba(212, 175, 55, 0.75)
+        );
+
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.15),
+        0 15px 40px rgba(0, 0, 0, 0.55);
+
+    overflow: hidden;
+}
+
+.foto-elegante::before {
+    content: "";
+
+    position: absolute;
+    inset: 4px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.foto-elegante img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+
+    filter:
+        contrast(1.02)
+        brightness(0.95);
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.foto-elegante:hover img {
+    transform: scale(1.02);
+
+    filter:
+        contrast(1.04)
+        brightness(1);
+}
+
+
+/* =========================
+   FOTOS DE MA. ISABEL
+   ========================= */
+
+.foto-ma-isabel {
+    position: relative;
+
+    width: 280px;
+    height: 390px;
+
+    margin: 40px auto 60px;
+
+    padding: 7px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #8d7322,
+            #f0d878,
+            #8d7322,
+            #d4af37
+        );
+
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.25),
+        0 0 30px rgba(212, 175, 55, 0.10),
+        0 20px 45px rgba(0, 0, 0, 0.65);
+
+    overflow: hidden;
+}
+
+/* Segundo borde dorado */
+
+.foto-ma-isabel::before {
+    content: "";
+
+    position: absolute;
+    inset: 5px;
+
+    border: 1px solid rgba(255, 240, 180, 0.55);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+/* Difuminado hacia el fondo */
+
+.foto-ma-isabel::after {
+    content: "";
+
+    position: absolute;
+    inset: 7px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 0 25px rgba(0, 0, 0, 0.65),
+        inset 0 0 45px rgba(0, 0, 0, 0.35);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.foto-ma-isabel img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    filter:
+        brightness(0.96)
+        contrast(1.03);
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+.foto-ma-isabel:hover img {
+    transform: scale(1.04);
+
+    filter:
+        brightness(1)
+        contrast(1.04);
+}
+
+
+/* =========================
+   FOTO DE LA CAPILLA
+   ========================= */
+
+.foto-capilla {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    max-width: 500px;
+}
+
+
+/* =========================
+   FOTO DE LA VIRGEN
+   ========================= */
+
+.foto-virgen {
+    margin-top: 45px;
+    margin-bottom: 15px;
+
+    max-width: 300px;
+}
+
+
+/* =========================
+   AJUSTES PARA MÓVIL
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .foto-elegante {
+        width: 92%;
+        padding: 6px;
+    }
+
+    .foto-ma-isabel {
+    width: 220px;
+    height: 310px;
+
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+    .foto-capilla {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .foto-virgen {
+        width: 75%;
+        margin-top: 40px;
+    }
+
+}
+
+
+.foto-ma-isabel-primera {
+    width: 280px;
+    height: 390px;
+    margin: 40px auto 60px;
+    position: relative;
+    z-index: 50;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 7px;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #8d7322,
+        #f0d878,
+        #8d7322,
+        #d4af37
+    );
+
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.12),
+        0 20px 45px rgba(0, 0, 0, 0.65);
+}
+
+.foto-ma-isabel-primera img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* =========================
+   PRIMERA FOTO DE MA. ISABEL
+   ========================= */
+
+.tarjeta.expandida .foto-ma-isabel-primera {
+    display: block;
+    flex: 0 0 auto;
+    width: 280px;
+    height: 390px;
+    min-width: 280px;
+    min-height: 390px;
+    margin: 40px auto 60px;
+    padding: 7px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #8d7322,
+        #f0d878,
+        #8d7322,
+        #d4af37
+    );
+
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.25),
+        0 0 30px rgba(212, 175, 55, 0.10),
+        0 20px 45px rgba(0, 0, 0, 0.65);
+}
+
+.tarjeta.expandida .foto-ma-isabel-primera img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
