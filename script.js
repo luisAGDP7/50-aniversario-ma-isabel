@@ -125,7 +125,7 @@ const botonConfeti = document.getElementById('botonConfeti');
 
 botonConfeti.addEventListener('click', () => {
 
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 500; i++) {
 
         const confeti = document.createElement('span');
 
