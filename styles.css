@@ -1087,35 +1087,56 @@ body {
 @media (max-width: 600px) {
 
     .ubicacion {
-    margin-top: 80px;
+        margin-top: 80px;
+        padding: 50px 20px 60px;
+    }
 
-    padding: 50px 20px 60px;
-}
+    .ubicacion-etiqueta {
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
 
-.ubicacion-etiqueta {
-    font-size: 9px;
+    .ubicacion-direccion {
+        font-size: 10px;
+    }
 
-    letter-spacing: 4px;
-}
+    .calendario {
+        margin-top: 70px;
+        padding: 45px 20px 60px;
+    }
 
-.ubicacion-direccion {
-    font-size: 10px;
-}
+    .calendario-etiqueta {
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
 
-.calendario {
-    margin-top: 70px;
-    padding: 45px 20px 60px;
-}
+    .calendario-texto {
+        font-size: 10px;
+    }
 
-.calendario-etiqueta {
-    font-size: 9px;
-    letter-spacing: 4px;
-}
+    .contador {
+        gap: 6px;
+        width: 100%;
+    }
 
-.calendario-texto {
-    font-size: 10px;
-}
+    .contador-bloque {
+        min-width: 0;
+        flex: 1;
+    }
 
+    .contador-bloque span {
+        font-size: clamp(24px, 8vw, 38px);
+    }
+
+    .contador-separador {
+        font-size: 20px;
+        margin-top: -12px;
+    }
+
+    .contador-bloque small {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
 }
 
 
@@ -1872,10 +1893,9 @@ body {
    ========================= */
 
 .foto-capilla {
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    max-width: 500px;
+    width: 96%;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 

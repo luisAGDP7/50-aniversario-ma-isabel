@@ -125,7 +125,7 @@ const botonConfeti = document.getElementById('botonConfeti');
 
 botonConfeti.addEventListener('click', () => {
 
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 1000; i++) {
 
         const confeti = document.createElement('span');
 
@@ -143,7 +143,7 @@ botonConfeti.addEventListener('click', () => {
 
         setTimeout(() => {
             confeti.remove();
-        }, 5000);
+        }, 80000000);
     }
 
 });
